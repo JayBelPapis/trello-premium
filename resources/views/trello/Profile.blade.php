@@ -17,7 +17,7 @@
     </ul>
     <div class="card-body">
         <a class="card-link" href="{{route('profile.edit', $profileIdFront)}}">Modifier profil</a>
-        <a class="card-link" href="{{route('home')}}">Retour</a>
+        <a class="card-link" href="{{route('profile.index')}}">Retour</a>
     </div>
   </div>
 
