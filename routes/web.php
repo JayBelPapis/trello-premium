@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TrelloHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CardController;
 
 use App\Http\Controllers\ProfileController;
 
@@ -23,11 +26,21 @@ Route::get('/', function () {
 })
 ->name('welcome');
 
-Auth::routes();
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
+Route::get('/home/{id}', [TrelloHomeController::class, 'show'])
+    ->name('home.show');
 
+/*Route::get('/home/{id}', [TrelloHomeController::class, 'showCard'])
+    ->name('home.show');*/
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/home', [TrelloHomeController::class, 'store'])
+    ->name('home.store');
 
-//Route que j'ai créé
+Route::get('/home', [HomeController::class, 'index'])
+    ->name('home');
+
 Route::resource('profile', ProfileController::class);
+
