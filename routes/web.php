@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\TrelloHomeController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\ProfileController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +20,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})
+->name('welcome');
 
 Auth::routes();
 
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Route que j'ai créé
+Route::resource('profile', ProfileController::class);

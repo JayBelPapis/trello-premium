@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in!') }} <br>
+
+                    <a class="btn btn-primary" href="{{route('profile.show', $profileVariableFront)}}">Voir le profil</a>
                 </div>
             </div>
         </div>
