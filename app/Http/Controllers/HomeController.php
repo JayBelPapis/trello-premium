@@ -26,11 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $profileVariableFront=Auth::id();
-
-        //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
-                    return view('home', compact('profileVariableFront'));
-
+        $lists = User::where('id', Auth::id())->first();
+        //dd($lists);
+        return view('home')->with(["user" => $lists]);
     }
-
 }
