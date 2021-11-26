@@ -10,6 +10,9 @@ use App\Http\Controllers\CardController;
 use App\Http\Controllers\ProfileController;
 
 
+use App\Http\Controllers\ProfileController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

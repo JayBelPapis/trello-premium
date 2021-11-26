@@ -30,4 +30,5 @@ class HomeController extends Controller
         //dd($lists);
         return view('home')->with(["user" => $lists]);
     }
+
 }
