@@ -19,26 +19,27 @@ class ProfileController extends Controller
     public function index()
     {
 
-        $profileVariableFront=Auth::id();
+        $profileVariableFront = Auth::id();
+        dd($profileVariableFront);
 
         //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
-                    return view('home', compact('profileVariableFront'));
+        return view('home', compact('profileVariableFront'));
     }
 
 
 
 
-  
-     
+
+
     public function show($id)
     {
-        $profileIdFront=Auth::id();
-        $profileName=Auth::user()->name;
-        $profileEmail=Auth::user()->email;
-        $profilePassword=Auth::user()->password;
+        $profileIdFront = Auth::id();
+        $profileName = Auth::user()->name;
+        $profileEmail = Auth::user()->email;
+        $profilePassword = Auth::user()->password;
 
         //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
-        return view('trello.profile', compact('profileIdFront','profileName','profileEmail','profilePassword'));
+        return view('trello.profile', compact('profileIdFront', 'profileName', 'profileEmail', 'profilePassword'));
     }
 
     /**
@@ -49,11 +50,11 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        $profileIdFront=Auth::id();
-        $profileName=Auth::user()->name;
-        $profileEmail=Auth::user()->email;
-        $profilePassword=Auth::user()->password;
-        return view('trello.editProfile', compact('profileIdFront','profileName','profileEmail','profilePassword')) ;
+        $profileIdFront = Auth::id();
+        $profileName = Auth::user()->name;
+        $profileEmail = Auth::user()->email;
+        $profilePassword = Auth::user()->password;
+        return view('trello.editProfile', compact('profileIdFront', 'profileName', 'profileEmail', 'profilePassword'));
     }
 
     /**
@@ -73,7 +74,7 @@ class ProfileController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->save();
 
-      return redirect()->route('profile.show', $user->id);
+        return redirect()->route('profile.show', $user->id);
     }
 
     /**
@@ -85,10 +86,10 @@ class ProfileController extends Controller
     //Création de la variable profileIdFront et recupération de l'id dans le model User grâce à ::find
     public function destroy($id)
     {
-        $profileIdFront=User::find($id);
-//Suppression des valeurs en BDD correspondant à l'id avec -> delete()
-        $profileIdFront-> delete();
-//redirection vers la route posts/index
-return redirect()->route('welcome');
+        $profileIdFront = User::find($id);
+        //Suppression des valeurs en BDD correspondant à l'id avec -> delete()
+        $profileIdFront->delete();
+        //redirection vers la route posts/index
+        return redirect()->route('welcome');
     }
 }
