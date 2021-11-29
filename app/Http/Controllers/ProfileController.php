@@ -21,23 +21,19 @@ class ProfileController extends Controller
 
         $profileVariableFront = Auth::id();
 
-        //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
+        //retourne la vue home
         return view('home', compact('profileVariableFront'));
     }
 
-
-
-
-
-
     public function show($id)
     {
+        //récupération des éléments id, name, email et password directement assignés dans des variables
         $profileIdFront = Auth::id();
         $profileName = Auth::user()->name;
         $profileEmail = Auth::user()->email;
         $profilePassword = Auth::user()->password;
 
-        //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
+        //retourne la vue profile via la route profile.show/{{profileIdFront}} = id récupéré
         return view('trello.profile', compact('profileIdFront', 'profileName', 'profileEmail', 'profilePassword'));
     }
 
@@ -66,7 +62,6 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
 
-        //$profileVariableFront=Auth::id();
         $user = User::find($id);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
