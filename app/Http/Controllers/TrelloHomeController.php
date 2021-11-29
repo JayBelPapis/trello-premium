@@ -29,8 +29,45 @@ class TrelloHomeController extends Controller
         ];
         Column::create($post);
 
-        $lists = Column::where('id_user', Auth::id())->get();
+        return redirect()->route('home.show', Auth::id());
+    }
 
-        return view('trelloHome')->with(["column" => $lists]);
+    public function storeCard(Request $request)
+    {
+
+        $request->validate([
+            'id_list' => 'nullable',
+            'id_user' => 'nullable',
+            'card_name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $card = [
+            'id_list' => $request->input('id_list'), // TODO à changer
+            'id_user' => $request->input('id_user'), // TODO à changer
+            'card_name' => $request->input('card_name'),
+            'description' => $request->input('description'),
+        ];
+        //dd($post);
+
+        Card::create($card);
+
+        return redirect()->route('home.show', Auth::id());
+    }
+
+
+    public function destroyList($id)
+    {
+        $list = Column::findOrFail($id);
+        $list->delete();
+        return redirect()->route('home.show', Auth::id());
+    }
+
+    public function editList(Request $request, $id)
+    {
+        $list = Column::findOrFail($id);
+        $list->list_name = $request->input('edit_list');
+        $list->save();
+        return redirect()->route('home.show', Auth::id());
     }
 }

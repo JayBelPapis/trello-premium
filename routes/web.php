@@ -26,7 +26,7 @@ Route::auth();
 Route::get('/', function () {
     return view('welcome');
 })
-->name('welcome');
+    ->name('welcome');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -44,8 +44,17 @@ Route::get('/home/{id}', [TrelloHomeController::class, 'show'])
 Route::post('/home', [TrelloHomeController::class, 'store'])
     ->name('home.store');
 
+Route::post('/home/card', [TrelloHomeController::class, 'storeCard'])
+    ->name('home.card.storeCard');
+
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
+
+Route::delete('/home/{id}', [TrelloHomeController::class, 'destroyList'])
+    ->name('list.destroy');
+
+Route::put('/home/{id}', [TrelloHomeController::class, 'editList'])
+    ->name('list.edit');
 
 
 Route::resource('posts', PostController::class);
@@ -53,4 +62,3 @@ Route::resource('posts', PostController::class);
 Route::resource('cards', CardController::class);
 
 Route::resource('profile', ProfileController::class);
-

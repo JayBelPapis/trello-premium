@@ -16,4 +16,9 @@ class Column extends Model
     {
         return $this->hasMany(Card::class, 'id_list');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
