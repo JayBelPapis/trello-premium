@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Trello</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -21,10 +21,10 @@
     <body class="antialiased">
                 <div class="block">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
+                        <a href="{{ url('/home') }}" class="button1">Home</a>
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
-                            <button>Se déconnecter</button>
+                            <button class="buttonSeDeco" >Se déconnecter</button>
                         </form>
 
                     @else
@@ -42,8 +42,8 @@
 
                         <h2 class="heading">
 
-                            Trello aide les équipes <br>
-                            à faire avancer les choses !
+                            Trello Premium ©<br>
+
 
                         </h2>
 
@@ -52,20 +52,21 @@
                     <div class="row">
                         <div class="doubleCol">
                             <p class="paragraphe">
-                                Collaborez, gérez des projets et atteignez de nouveaux sommets en matière de productivité.
-                                Depuis un gratte-ciel ou un bureau à domicile, la façon dont votre équipe travaille est unique. Accomplissez toutes vos tâches avec Trello.
+                                Voici notre Trello Premium ©, collaboré avec Jerome, Jorge, Seloua et Anthony.
+                                Sur ce Trello Premium, une solution pour créer et gérer des tickets.
                             </p>
                         </div>
 
                                  <div class="doubleCol">
                             <div class="composition">
-                                <img src="https://mesemployes.com/app/uploads/discussion-competences-collegues-mixtes-510x296.jpg"
+                                <img src="https://play-lh.googleusercontent.com/YEVAyoqgaWRjGspzJModQautkknHm5m1l2p7tli4JL6Q013TUlinshSfsBq4g04e1Q=w412-h220-rw"
                                     alt="Photo 1" class="composition__photo composition__photo--p1">
-                                <img src="https://www.acd-groupe.fr/wp-content/uploads/2020/10/Article_economie_collaborative.jpg"
-                                    alt="Photo 2" class="composition__photo composition__photo--p2">
                                 <img src="https://images.prismic.io/cadremploi-edito/7baae237-4f02-4be8-8adb-e259d6d57314_shutterstock_447034384.jpg?auto=compress,format&rect=0,84,1000,500&w=800&h=400"
+                                    alt="Photo 2" class="composition__photo composition__photo--p2">
+                                <img src="https://c.pxhere.com/photos/2c/66/men_employees_suit_work_greeting_business_office_chef-1282006.jpg!d"
                                     alt="Photo 3" class="composition__photo composition__photo--p3">
                             </div>
+
                         </div>
 
                     </div>
@@ -78,6 +79,8 @@
 </html>
 
 <style>
+
+
 .button1
 {
     background-color: #4CAF50; /* Green */
@@ -97,20 +100,35 @@
     background-color: white;
     color: black;
     border: 2px solid #4CAF50;
+    margin: none;
 
 }
 
+.buttonSeDeco
+{
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    margin: none;
+    padding: 20px
+
+}
+
+
 .block {
-    position: absolute;
+    position: flex;
     margin: 1%;
 }
 html {
     font-size: 16px;
     font-family: 'Lato';
+
 }
 
 body {
     margin: 0;
+    color:black;
+
 }
 
 
@@ -142,15 +160,15 @@ body {
 
 
 .row {
-   display: flex;
-   width: 100rem;
+   display: absolute;
+   width: 100%;
    margin: 0 auto;
    height: 51rem;
 }
 
 .row .doubleCol {
     width: calc((100% - 6rem) / 2);
-    margin: 1rem;
+    margin: 0.3rem;
 }
 
 
@@ -194,7 +212,7 @@ body {
 
 .composition  {
     position: relative;
-    margin-top: 2.8rem;
+    margin-top: 0.8rem;
 }
 
 
@@ -217,14 +235,15 @@ body {
     right: 0;
     top: 2rem;
 }
-.composition__photo--p1 {
-    left: 20%;
+.composition__photo--p3 {
+    left: 10%;
     top: 10rem;
 }
 
 
+
 .composition__photo:hover {
-    outline: 1.5rem solid #c0b283;
+    outline: 1rem solid #c0b283;
     transform: scale(1.05) translateY(-0.5rem);
     box-shadow: 0 2.5rem 4rem rgba(0,0,0,0.5);
     z-index: 20;

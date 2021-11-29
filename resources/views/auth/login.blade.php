@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 class="text-3xl text-green-500 mb-6 text-center">Se connecter</h1>
+    <h1 class="text-3xl text-green-500 mb-6 text-center">Se connecter sur trello</h1>
     <form method="POST" action="{{ route('login') }}" class="w-full max-w-sm mx-auto rounded-lg border shadow-md p-5 mb-5">
         @csrf
 
