@@ -20,6 +20,37 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="navBarOrga" class="container-fluid">
+                <div class="leftSide">
+                    <a class="navbar-brand" href="/">Trello</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        
+                            <a class="nav-link" href="{{ route('profile.show', $profileVariableFront ?? '') }}">Mon Profil</a>
+                        
+                    </div>
+                </div>
+                <div class="rightSide">
+                    
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button class="btn btn-outline-success x-3">Se déconnecter</button>
+                        </form>
+                    
+                    <a type="button" href="{{ route('home.show', $user->id ?? '') }}" class="btn btn-outline-success x-3">Crée nouvelle listes</a>
+
+                    
+
+            </div>
+        </div>
+      </nav>
+
 </head>
 
 <body>
