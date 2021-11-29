@@ -15,13 +15,13 @@
                         @endif
 
                         {{ __('You are logged in!') }} <br>
-                        <a class="btn btn-primary" href="{{ route('profile.show', $profileVariableFront) }}">Voir le
+                        <a class="btn btn-primary" href="{{ route('profile.show', $profileVariableFront ?? '') }}">Voir le
                             profil</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <a href="{{ route('home.show', $user->id) }}">Crée nouvelle listes</a>
+        <a href="{{ route('home.show', $user->id ?? '') }}">Crée nouvelle listes</a>
 
     @endsection

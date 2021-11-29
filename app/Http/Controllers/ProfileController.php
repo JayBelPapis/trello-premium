@@ -20,7 +20,6 @@ class ProfileController extends Controller
     {
 
         $profileVariableFront = Auth::id();
-        dd($profileVariableFront);
 
         //retourne la vue blogs/show/{{postVariableFront}} = id récupéré
         return view('home', compact('profileVariableFront'));

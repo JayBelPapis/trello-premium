@@ -11,7 +11,7 @@
     @foreach ($column as $toto)
         {{ $toto->list_name }} <br>
         @foreach ($toto->cards as $card)
-            gyhjhghj {{ $card->card_name }}
+            {{ $card->card_name }}
 
         @endforeach
     @endforeach
