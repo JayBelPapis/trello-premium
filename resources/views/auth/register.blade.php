@@ -1,10 +1,4 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.app')
 
 @section('content')
 <h1 class="text-3xl text-green-500 mb-6 text-center">Completez vos informations</h1>

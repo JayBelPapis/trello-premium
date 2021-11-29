@@ -48,6 +48,8 @@ Remove the margin in all browsers.
 
 body {
   margin: 0;
+  background-image: url('../assets/profile-bgd.jpg');
+  background-size: cover;
 }
 
 /**
@@ -526,14 +528,14 @@ samp {
  *    CSS Remedy, with `svg` added as well.
  *
  *    https://github.com/mozdevs/cssremedy/issues/14
- * 
+ *
  * 2. Add `vertical-align: middle` to align replaced elements more
  *    sensibly by default when overriding `display` by adding a
  *    utility like `inline`.
  *
  *    This can trigger a poorly considered linting error in some
  *    tools but is included by design.
- * 
+ *
  *    https://github.com/jensimmons/cssremedy/issues/14#issuecomment-634934210
  */
 
@@ -188575,5 +188577,62 @@ select {
   .\32xl\:ease-in-out {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
+
+  .profilePage{
+    display : flex;
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : center;
+    padding-top : 40px;
+    
 }
+
+.profilePage .profileTitle{
+    margin-bottom : 30px;
+    font-size:2.5em;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+#subTitleProfile{
+    font-size:2em;
+}
+
+#profileCard{
+    background-color:#F1FFED;
+    border:2px solid green;
+    border-radius : 8px;
+    box-shadow:2px 2px 8px black;
+    display : flex;
+    flex-direction : column;
+    justify-content : space-around;
+    padding:20px;
+    
+}
+
+#profileElement{
+    display : flex;
+    flex-direction : column;
+    justify-content : space-around;
+    align-items : center;
+}
+
+#profileButtons{
+    display : flex;
+    flex-direction : row;
+    justify-content : center;
+    align-items : center;
+    padding : 25px;
+}
+
+#EditprofileButtons{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+    align-items : center;
+    padding : 25px;
+}
+
+
+
 
