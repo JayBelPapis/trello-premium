@@ -188735,4 +188735,15 @@ select {
     border-radius: 50% 20% / 10% 40%;
 } */
 
+.createList{
+    border:2px solid #373737;
+    border-radius:5px;
+    box-shadow:2px 2px 8px black;
+    background-color:white;
+    opacity:0.8;
+    width:300px;
+    margin: 20px;
+    padding:20px;
+}
+
 
