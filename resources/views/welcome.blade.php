@@ -33,17 +33,17 @@
                             <div class="block">
                                 @auth
                                      <!--<a href="{{ url('/home') }}" class="button1">Home</a>--><!--lien qui ne marche pas-->
-                                    <a href="{{ route('home') }}" id="leftMarginButton" class="btn btn-lg btn-info">Accueil</a><!--lien qui marche-->
+                                    <a href="{{ route('home') }}" id="leftMarginButton" class="button1">Accueil</a><!--lien qui marche-->
                                     <form action="{{ route('logout') }}" method="post">
                                         @csrf
-                                        <button id="leftMarginButton" class="btn btn-lg btn-warning" >Se déconnecter</button>
+                                        <button id="leftMarginButton" class="button2" >Se déconnecter</button>
                                     </form>
             
                                 @else
-                                    <a href="{{ route('login') }}" id="leftMarginButton" class="btn btn-lg btn-info">Se connecter</a>
+                                    <a href="{{ route('login') }}" id="leftMarginButton" class="button1">Se connecter</a>
             
                                     @if (Route::has('register'))
-                                        <a href="{{ route('register') }}" id="leftMarginButton" class="btn btn-lg btn-warning">Créer un compte</a>
+                                        <a href="{{ route('register') }}" id="leftMarginButton" class="button2">Créer un compte</a>
                                     @endif
                                 @endauth
             
@@ -226,6 +226,60 @@ body {
 
 #leftMarginButton:hover{
     transform: scale(1.05) translateY(-0.5rem);
+
+}
+
+.button1
+{
+    background-color: #373737;
+    color: white;
+    border-radius: 50% 20% / 10% 40%
+
+}
+
+.button1
+{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1:hover{
+    
+    color: white;
+
+}
+
+.button2:hover{
+    
+    color: white;
+
+}
+
+.button2
+{
+    
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button2
+{
+    background-color: #C0B283;
+    color: white;
+    border-radius: 50% 20% / 10% 40%
 
 }
 
