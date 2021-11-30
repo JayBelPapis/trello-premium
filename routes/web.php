@@ -43,15 +43,26 @@ Route::post('/home/card', [TrelloHomeController::class, 'storeCard'])
 Route::get('/home', [HomeController::class, 'index'])
     ->name('home');
 
-Route::delete('/home/{id}', [TrelloHomeController::class, 'destroyList'])
+Route::delete('/home/{id}/delete', [TrelloHomeController::class, 'destroyList'])
     ->name('list.destroy');
 
 Route::put('/home/{id}', [TrelloHomeController::class, 'editList'])
     ->name('list.edit');
 
+Route::delete('/home/{id}', [TrelloHomeController::class, 'destroyCard'])
+    ->name('card.destroy.custom');
+
+Route::put('/home/{id}/edit/custom', [TrelloHomeController::class, 'editCard'])
+    ->name('card.edit.custom');
+
+Route::get('/home/{id}/show', [TrelloHomeController::class, 'showCard'])
+    ->name('card.show');
+
+Route::post('/home/{id}/description', [TrelloHomeController::class, 'storeDescription'])
+    ->name('home.description.storeDescription');
 
 Route::resource('posts', PostController::class);
 
-Route::resource('cards', CardController::class);
+
 
 Route::resource('profile', ProfileController::class);
