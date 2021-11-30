@@ -12,7 +12,7 @@
 
     </head>
     <body class="antialiased">
-                
+
                 <section class="sectionApropos">
 
                     <div class="textCentre margBot">
@@ -38,15 +38,15 @@
                                         @csrf
                                         <button id="leftMarginButton" class="button2" >Se déconnecter</button>
                                     </form>
-            
+
                                 @else
                                     <a href="{{ route('login') }}" id="leftMarginButton" class="button1">Se connecter</a>
-            
+
                                     @if (Route::has('register'))
                                         <a href="{{ route('register') }}" id="leftMarginButton" class="button2">Créer un compte</a>
                                     @endif
                                 @endauth
-            
+
                             </div>
                         </div>
 
@@ -135,8 +135,8 @@ body {
 }
 
 .row .doubleCol {
-    width: calc((100% - 6rem) / 2);
-    margin: 0.3rem;
+    width: calc((98% - 19rem) / 2);
+    margin: 2.3rem;
 }
 
 
@@ -157,7 +157,7 @@ body {
 
 #leftMarginButton{
     margin: 15px;
-    
+
 }
 
 
@@ -251,20 +251,20 @@ body {
 }
 
 .button1:hover{
-    
+
     color: white;
 
 }
 
 .button2:hover{
-    
+
     color: white;
 
 }
 
 .button2
 {
-    
+
     border: none;
     color: white;
     padding: 15px 32px;
