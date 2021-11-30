@@ -10,41 +10,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
     </head>
     <body class="antialiased">
-                <div class="block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="button1">Home</a>
-                        <form action="{{ route('logout') }}" method="post">
-                            @csrf
-                            <button class="buttonSeDeco" >Se déconnecter</button>
-                        </form>
-
-                    @else
-                        <a href="{{ route('login') }}" class="button1">Se connecter</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-primary">Créer un compte</a>
-                        @endif
-                    @endauth
-
-                </div>
+                
                 <section class="sectionApropos">
 
                     <div class="textCentre margBot">
 
                         <h2 class="heading">
-
                             Trello Premium ©<br>
-
-
                         </h2>
 
                     </div>
@@ -52,14 +26,33 @@
                     <div class="row">
                         <div class="doubleCol">
                             <p class="paragraphe">
-                                Voici notre Trello Premium ©, collaboré avec Jerome, Jorge, Seloua et Anthony.
+                                Voici notre Trello Premium ©, conçu par Jerome, Jorge, Seloua et Anthony.
                                 Sur ce Trello Premium, une solution pour créer et gérer des tickets.
                             </p>
+
+                            <div class="block">
+                                @auth
+                                     <!--<a href="{{ url('/home') }}" class="button1">Home</a>--><!--lien qui ne marche pas-->
+                                    <a href="{{ route('home') }}" id="leftMarginButton" class="btn btn-lg btn-info">Accueil</a><!--lien qui marche-->
+                                    <form action="{{ route('logout') }}" method="post">
+                                        @csrf
+                                        <button id="leftMarginButton" class="btn btn-lg btn-warning" >Se déconnecter</button>
+                                    </form>
+            
+                                @else
+                                    <a href="{{ route('login') }}" id="leftMarginButton" class="btn btn-lg btn-info">Se connecter</a>
+            
+                                    @if (Route::has('register'))
+                                        <a href="{{ route('register') }}" id="leftMarginButton" class="btn btn-lg btn-warning">Créer un compte</a>
+                                    @endif
+                                @endauth
+            
+                            </div>
                         </div>
 
                                  <div class="doubleCol">
                             <div class="composition">
-                                <img src="https://play-lh.googleusercontent.com/YEVAyoqgaWRjGspzJModQautkknHm5m1l2p7tli4JL6Q013TUlinshSfsBq4g04e1Q=w412-h220-rw"
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
                                     alt="Photo 1" class="composition__photo composition__photo--p1">
                                 <img src="https://images.prismic.io/cadremploi-edito/7baae237-4f02-4be8-8adb-e259d6d57314_shutterstock_447034384.jpg?auto=compress,format&rect=0,84,1000,500&w=800&h=400"
                                     alt="Photo 2" class="composition__photo composition__photo--p2">
@@ -81,43 +74,12 @@
 <style>
 
 
-.button1
-{
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+body {
+    font-family: 'Nunito', sans-serif;
 }
-
-.button1
-{
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-    margin: none;
-
-}
-
-.buttonSeDeco
-{
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-    margin: none;
-    padding: 20px
-
-}
-
-
 .block {
-    position: flex;
-    margin: 1%;
+    position: flex; /*WTF???*/
+    margin: 15%;
 }
 html {
     font-size: 16px;
@@ -150,8 +112,15 @@ body {
     color: transparent;
     letter-spacing: 0.2rem;
     transition: all .2s;
+    margin: 50px;
 }
 
+.block{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
 
 .heading:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
@@ -163,7 +132,6 @@ body {
    display: absolute;
    width: 100%;
    margin: 0 auto;
-   height: 51rem;
 }
 
 .row .doubleCol {
@@ -185,6 +153,11 @@ body {
 .paragraphe {
     font-size: 1.6rem;
     margin-bottom: 3rem;
+}
+
+#leftMarginButton{
+    margin: 15px;
+    
 }
 
 
@@ -217,9 +190,9 @@ body {
 
 
 .composition__photo {
-    width: 55%;
+    width: 65%;
     box-shadow: 0 1.5rem 4rem rgba(0,0,0, 0.4);
-    border-radius: 2px;
+    border-radius: 4px;
     position: absolute;
     z-index: 10;
     transition: all 0.2s;
@@ -240,8 +213,6 @@ body {
     top: 10rem;
 }
 
-
-
 .composition__photo:hover {
     outline: 1rem solid #c0b283;
     transform: scale(1.05) translateY(-0.5rem);
@@ -251,6 +222,11 @@ body {
 }
 .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95);
+}
+
+#leftMarginButton:hover{
+    transform: scale(1.05) translateY(-0.5rem);
+
 }
 
 </style>

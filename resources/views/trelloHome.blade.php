@@ -1,4 +1,7 @@
-<body>
+@extends('layouts.app')
+
+@section('content')
+
     <h1 class="title">Liste</h1>
     <form action="{{ route('home.store') }}" method="post" class="form">
         @csrf
@@ -64,6 +67,8 @@
         </div>
     @endif
 
+    @endsection
+
 
     <style>
         .trelloHome {
@@ -97,4 +102,3 @@
 
     </style>
 
-</body>
