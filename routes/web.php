@@ -21,7 +21,7 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::auth();
+Route::Auth();
 
 Route::get('/', function () {
     return view('welcome');
