@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Card;
 use App\Models\Column;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -90,22 +91,51 @@ class TrelloHomeController extends Controller
     public function showCard($id)
     {
         $card = Card::find($id);
-        return view('cards.show', compact('card'));
+        return view('cards.show')->with('card', $card);
     }
 
-    public function storeDescription(Request $request)
+    public function storeDescription(Request $request, $id)
     {
-
         $request->validate([
             'description' => 'required|string|max:50',
         ]);
 
-        $post = [
-            'description' => $request->input('list_name'),
-            'id_user' => Auth::id(),
-        ];
-        Card::create($post);
+        $card = Card::findOrFail($id);
 
-        return redirect()->route('card.show', Auth::id());
+        $card->description = $request->input('description');
+        $card->save();
+
+        return redirect()->back();
     }
+
+    //   public function storeCommentaire(Request $request, $id)
+    //   $request->validate([
+    //           {
+    //           'comment' => 'required|string|max:50',
+    //       ]);
+    //
+    //
+    //
+    //       $comments = Comment::findOrFail($id);
+    //      $comments->comment = $request->input('commentaires');
+    //      $comments->save();
+    //
+    //      return redirect()->back();
+    //  }
+
+    // public function storeComment(Request $request)
+    // {//
+    //
+    //      $request->validate([
+    //          'comment' => 'required|string|max:50',
+    //      ]);
+    //
+    //      $comments = [
+    //          'comment' => $request->input('comment'),
+    //          'id_user' => Auth::id(),
+    //      ];
+    //      Column::create($comments);
+    //
+    //      return redirect()->route('home.show', Auth::id());
+    //  }
 }
