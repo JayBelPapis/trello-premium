@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Card;
 use App\Models\Column;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -90,86 +91,51 @@ class TrelloHomeController extends Controller
     public function showCard($id)
     {
         $card = Card::find($id);
-        return view('cards.show', compact('card'));
+        return view('cards.show')->with('card', $card);
     }
 
-    public function storeDescription (Request $request)
+    public function storeDescription(Request $request, $id)
     {
-
         $request->validate([
             'description' => 'required|string|max:50',
         ]);
 
-        $card = [
-            'description' => $request->input('list_name'),
-            'id_user' => Auth::id(),
-        ];
-        Card::create($post);
+        $card = Card::findOrFail($id);
 
-        return redirect()->route('card.show', Auth::id());
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public function store(Request $request)
-    {
-        // $post = $request->validate([...]);
-        $request->validate([
-            'id_list' => 'nullable',
-            'id_user' => 'nullable',
-            'card_name' => 'required',
-            'description' => 'required',
-        ]);
-
-        $card = [
-            'id_list' => $request->input('id_list') ?? 1, // TODO à changer
-            'id_user' => $request->input('id_user') ?? 1, // TODO à changer
-            'card_name' => $request->input('card_name'),
-            'description' => $request->input('description'),
-        ];
-        //dd($post);
-
-        Card::create($card);
-
-        //return view('cards.index'); => ne pas faire, il faut utiliser une redirection
-        return redirect()->route('cards.index');
-    }
-
-    public function showCard($id)
-    {
-        $card = Card::find($id);
-        return view('cards.show', compact('card'));
-    }
-
-    public function edit($id)
-    {
-
-        $card = Card::find($id);
-
-        return view('cards.edit', compact('card'));
-    }
-
-    public function update(Request $request, $id)
-    {
-        $card = Card::find($id);
-
-        $card->id_list = $request->input('id_list');
-        $card->id_user = $request->input('id_user');
-        $card->card_name = $request->input('card_name');
         $card->description = $request->input('description');
         $card->save();
 
-        return redirect()->route('cards.show', $id);
+        return redirect()->back();
     }
 
+    //   public function storeCommentaire(Request $request, $id)
+    //   $request->validate([
+    //           {
+    //           'comment' => 'required|string|max:50',
+    //       ]);
+    //
+    //
+    //
+    //       $comments = Comment::findOrFail($id);
+    //      $comments->comment = $request->input('commentaires');
+    //      $comments->save();
+    //
+    //      return redirect()->back();
+    //  }
 
+    // public function storeComment(Request $request)
+    // {//
+    //
+    //      $request->validate([
+    //          'comment' => 'required|string|max:50',
+    //      ]);
+    //
+    //      $comments = [
+    //          'comment' => $request->input('comment'),
+    //          'id_user' => Auth::id(),
+    //      ];
+    //      Column::create($comments);
+    //
+    //      return redirect()->route('home.show', Auth::id());
+    //  }
+}

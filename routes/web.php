@@ -65,8 +65,14 @@ Route::put('/home/{id}/edit/custom', [TrelloHomeController::class, 'editCard'])
 Route::get('/home/{id}/show', [TrelloHomeController::class, 'showCard'])
     ->name('card.show');
 
-Route::post('/home/{id}/description', [TrelloHomeController::class, 'storeDescription'])
+Route::put('/home/{id}/description', [TrelloHomeController::class, 'storeDescription'])
     ->name('home.description.storeDescription');
+
+//Route::put('/home/{id}/commentaire', [TrelloHomeController::class, 'storeCommentaire'])
+// ->name('home.commentaire.storeCommentaire');
+
+//Route::post('home/comment', [TrelloHomeController::class, 'storeComment'])
+// ->name('home.comment.storeComment');
 
 Route::resource('posts', PostController::class);
 

@@ -1,16 +1,9 @@
-@extends('layout')
+<form action="{{ route('home.description.storeDescription', $card->id_card) }}" method="post">
+    @method('PUT')
+    @csrf
+    <textarea type="text" name="description" placeholder="La description de la carte"
+        value="{{ $card->description }}"></textarea>
+    <br>
+    <button class="link" type="submit">Valider</button>
 
-@section('content')
-    @if(isset($card))
-        <div class="card">
-            <h5 class="card-header">Nom de la carte: {{ $card->card_name }}</h5>
-            <div class="card-body">
-                <h5 class="card-title">Description: {{ $card->description }}</h5>
-            </div>
-        </div>
-    @else
-        La carte n'a pas été trouvé
-    @endif
-
-    <a href="{{ route('cards.index') }}" class="btn btn-secondary">Retour</a>
-@endsection
+    <h5 class="card-title">{{ $card->description }}</h5>
