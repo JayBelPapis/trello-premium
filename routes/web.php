@@ -28,15 +28,8 @@ Route::get('/', function () {
 })
     ->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-
 /*Route::get('/home/{id}', [TrelloHomeController::class, 'showCard'])
     ->name('home.show');*/
-
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/home/{id}', [TrelloHomeController::class, 'show'])
     ->name('home.show');
