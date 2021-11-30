@@ -29,23 +29,23 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        
+
+
+
                             <a class="nav-link" href="{{ route('profile.show', $profileVariableFront ?? '') }}">Mon Profil</a>
-                        
+
                     </div>
                 </div>
                 <div class="rightSide">
-                    
+
                         <form action="{{ route('logout') }}" method="post">
                             @csrf
                             <button class="btn btn-outline-success x-3">Se déconnecter</button>
                         </form>
-                    
+
                     <a type="button" href="{{ route('home.show', $user->id ?? '') }}" class="btn btn-outline-success x-3">Crée nouvelle listes</a>
 
-                    
+
 
             </div>
         </div>

@@ -63,6 +63,13 @@ class TrelloHomeController extends Controller
         return redirect()->route('home.show', Auth::id());
     }
 
+    public function destroyCard($id)
+    {
+        $card = Card::findOrFail($id);
+        $card->delete();
+        return redirect()->route('home.show', Auth::id());
+    }
+
     public function editList(Request $request, $id)
     {
         $list = Column::findOrFail($id);
@@ -70,4 +77,99 @@ class TrelloHomeController extends Controller
         $list->save();
         return redirect()->route('home.show', Auth::id());
     }
-}
+
+    public function editCard(Request $request, $id)
+    {
+        $card = Card::findOrFail($id);
+        $card->card_name = $request->input('edit_card');
+        $card->save();
+
+        return redirect()->route('home.show', Auth::id());
+    }
+
+    public function showCard($id)
+    {
+        $card = Card::find($id);
+        return view('cards.show', compact('card'));
+    }
+
+    public function storeDescription (Request $request)
+    {
+
+        $request->validate([
+            'description' => 'required|string|max:50',
+        ]);
+
+        $card = [
+            'description' => $request->input('list_name'),
+            'id_user' => Auth::id(),
+        ];
+        Card::create($post);
+
+        return redirect()->route('card.show', Auth::id());
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function store(Request $request)
+    {
+        // $post = $request->validate([...]);
+        $request->validate([
+            'id_list' => 'nullable',
+            'id_user' => 'nullable',
+            'card_name' => 'required',
+            'description' => 'required',
+        ]);
+
+        $card = [
+            'id_list' => $request->input('id_list') ?? 1, // TODO à changer
+            'id_user' => $request->input('id_user') ?? 1, // TODO à changer
+            'card_name' => $request->input('card_name'),
+            'description' => $request->input('description'),
+        ];
+        //dd($post);
+
+        Card::create($card);
+
+        //return view('cards.index'); => ne pas faire, il faut utiliser une redirection
+        return redirect()->route('cards.index');
+    }
+
+    public function showCard($id)
+    {
+        $card = Card::find($id);
+        return view('cards.show', compact('card'));
+    }
+
+    public function edit($id)
+    {
+
+        $card = Card::find($id);
+
+        return view('cards.edit', compact('card'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $card = Card::find($id);
+
+        $card->id_list = $request->input('id_list');
+        $card->id_user = $request->input('id_user');
+        $card->card_name = $request->input('card_name');
+        $card->description = $request->input('description');
+        $card->save();
+
+        return redirect()->route('cards.show', $id);
+    }
+
+
