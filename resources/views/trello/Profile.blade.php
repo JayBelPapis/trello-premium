@@ -13,13 +13,13 @@
         <p class="card-text">Ci-dessous les informations saisies lors de votre inscription</p>
         </div>
         <ul class="list-group list-group-flush">
-        <li class="list-group-item"> Nom : {{ $profileName}}</li>
-        <li class="list-group-item"> Email : {{ $profileEmail}} </li>
+        <li class="list-group-item"> Nom : {{ $profileName}}</li> <br>
+        <li class="list-group-item"> Email : {{ $profileEmail}} </li> <br>
         <li class="list-group-item"> Mot de Passe : Private </li>
         </ul>
         <div id="profileButtons" class="card-body">
-            <a class="btn btn-info card-link" href="{{route('profile.edit', $profileIdFront)}}">Modifier profil</a>
-            <a class="btn btn-dark card-link" href="{{route('profile.index')}}">Retour</a>
+            <a class="button1" href="{{route('profile.edit', $profileIdFront)}}">Modifier profil</a>
+            <a class="butt2" href="{{route('profile.index')}}">Retour</a>
         </div>
     </div>
 </div>

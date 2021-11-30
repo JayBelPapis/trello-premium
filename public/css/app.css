@@ -188599,8 +188599,7 @@ select {
 }
 
 #profileCard{
-    background-color:#F1FFED;
-    border:2px solid green;
+    background-color:#C0B283;
     border-radius : 8px;
     box-shadow:2px 2px 8px black;
     display : flex;
@@ -188623,6 +188622,7 @@ select {
     justify-content : center;
     align-items : center;
     padding : 25px;
+
 }
 
 #EditprofileButtons{
@@ -188672,5 +188672,67 @@ select {
     vertical-align:center;
 }
 
+.button1
+{
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button1:hover{
+
+    color: white;
+
+}
+
+.butt2
+{
+    border: none;
+    background-color: #40aeb0;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50% 20% / 10% 40%
+}
+
+.butt2:hover{
+
+    color: white;
+
+}
+
+/* .button2
+{
+    border: blue;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #40aeb0;
+}
+
+.button2:hover{
+
+    background-color: #C0B283;
+    color: white;
+    background-color: #40aeb0;
+    color: white;
+    border-radius: 50% 20% / 10% 40%;
+} */
 
 
