@@ -188584,7 +188584,7 @@ select {
     justify-content : space-around;
     align-items : center;
     padding-top : 40px;
-    
+
 }
 
 .profilePage .profileTitle{
@@ -188607,7 +188607,7 @@ select {
     flex-direction : column;
     justify-content : space-around;
     padding:20px;
-    
+
 }
 
 #profileElement{
@@ -188633,6 +188633,44 @@ select {
     padding : 25px;
 }
 
+.leftSide{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    width:500px;
+}
+
+.rightSide{
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-end;
+    align-items:center;
+    width:500px;
+    padding : 10px;
+}
+
+#newListButton{
+    margin-left:10px;
+}
+
+.logoTrello{
+    width:70px;
+    border-radius:100px;
+}
+
+#linkSize{
+    font-size:1.5rem;
+    letter-spacing:2px;
+}
+
+#cssCard{
+    margin:25%;
+}
+
+#cssContent{
+    text-align:center;
+    vertical-align:center;
+}
 
 
 
