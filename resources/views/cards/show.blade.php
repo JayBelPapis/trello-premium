@@ -1,3 +1,7 @@
+@extends("layouts.app")
+
+
+@section('content')
 <form action="{{ route('home.description.storeDescription', $card->id_card) }}" method="post">
     @method('PUT')
     @csrf
@@ -5,5 +9,7 @@
         value="{{ $card->description }}"></textarea>
     <br>
     <button class="link" type="submit">Valider</button>
-
+</form>
     <h5 class="card-title">{{ $card->description }}</h5>
+
+@endsection
